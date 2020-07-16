@@ -27,7 +27,15 @@ export class IncrementadorComponent {
     }
   }
 
-  onChange(event){
-    console.log(event);
+  onChange(nuevoValor){
+
+    if(nuevoValor >= 100){
+      this.progreso = 100;
+    } else if (nuevoValor <= 0) {
+      this.progreso = 0;
+    } else {
+      this.progreso = nuevoValor;
+    }
+    this.valorSalida.emit(this.progreso);
   }
 }
